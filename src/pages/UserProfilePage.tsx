@@ -6,11 +6,21 @@ const UserProfilePage = () => {
   const { updateUser, isLoading: isUpdateLoading } = useUpdateMyUser();
 
   if (isGetLoading) {
-    return <span>Loading...</span>;
+    return (
+      <div className="flex items-center justify-center min-h-screen">
+        <div className="w-10 h-10 border-4 border-orange-500 border-t-transparent rounded-full animate-spin"></div>
+      </div>
+    );
   }
 
   if (!currentUser) {
-    return <span>Unable to load user profile</span>;
+    return (
+      <div className="flex flex-col items-center justify-center min-h-screen">
+        <p className="text-xl font-semibold text-orange-500">
+          Unable to load User profile.
+        </p>
+      </div>
+    );
   }
   return (
     <UserProfileForm
